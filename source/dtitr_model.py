@@ -334,10 +334,11 @@ def run_train_model(FLAGS):
 
     mse, rmse, ci = dtitr_model.evaluate([prot_test, smiles_test], kd_test)
 
-    dtitr_model.save('dtitr_model.h5')
-
     logging("Test Fold - " + (" MSE = %0.3f, RMSE = %0.3f, CI = %0.3f" % (mse, rmse, ci)), FLAGS)
-
+    
+    dtitr_model.save('dtitr_model.h5')
+    dtitr_model.save_weights('dtitr_weights')
+    tf.keras.models.save_model(dtitr_model,'dtitr__model.h5',save_format=h5)
 
 def run_evaluation_model(FLAGS):
     """
