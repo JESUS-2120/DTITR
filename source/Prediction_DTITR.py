@@ -107,11 +107,15 @@ optimizer_fun = tfa.optimizers.RectifiedAdam(learning_rate=1e-04, beta_1=0.9,
                                                  beta_2=0.999, epsilon=1e-08,
                                                  weight_decay=1e-05)
                                                  
-#file_n = open("../Prediction_1.txt","w")
-
 #Load model and predict
 dtitr_model = build_dtitr_model(FLAGS, 3, 3, 1, 4, 4, 4, '', '', 512, 512, 128, 0.1, 'gelu', 3, [512, 512, 512],optimizer_fun)
 
 dtitr_model.load_weights('../model/dtitr_model/')
 
-print(dtitr_model.predict([protein_data, smiles_data]))
+prediccion = dtitr_model.predict([protein_data, smiles_data])
+
+file_n = open("../Prediction_1.txt","w")
+accession = dataset_builder(FLAGS.data_path).get_data()[0]['Acession Number']
+
+for i in range(len(accession)):
+  file_n.write(str(accession[i])+":"+str(prediccion[i])+"\n")
