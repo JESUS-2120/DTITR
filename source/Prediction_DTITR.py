@@ -81,7 +81,7 @@ def build_dtitr_model(FLAGS, prot_trans_depth, smiles_trans_depth, cross_attn_de
 FLAGS = argparser()
 FLAGS.log_dir = os.getcwd() + '/logs/' + time.strftime("%d_%m_%y_%H_%M", time.gmtime()) + "/"
 FLAGS.checkpoint_path = os.getcwd() + '/checkpoints/' + time.strftime("%d_%m_%y_%H_%M", time.gmtime()) + "/"
-FLAGS.data_path = {'data': '../data/davis/dataset/davis_dataset_processed.csv',
+FLAGS.data_path = {'data': '../data/Data_TaP.csv',
                    'prot_dic': '../dictionary/davis_prot_dictionary.txt',
                    'smiles_dic': '../dictionary/davis_smiles_dictionary.txt',
                    'prot_bpe': ['../dictionary/protein_codes_uniprot.txt',
