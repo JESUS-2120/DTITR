@@ -91,7 +91,7 @@ FLAGS.data_path = {'data': '../data/davis/dataset/davis_dataset_processed.csv',
 
 
 #Prepare data
-protein_data, smiles_data = dataset_builder(FLAGS.data_path).transform_dataset(FLAGS.bpe_option[0],FLAGS.bpe_option[1],'Sequence','SMILES',FLAGS.protein_bpe_len,FLAGS.protein_len,FLAGS.smiles_bpe_len,FLAGS.smiles_len)
+protein_data, smiles_data = dataset_builder(FLAGS.data_path).transform_dataset(FLAGS.bpe_option[0],FLAGS.bpe_option[1],'Sequence','SMILES','Kd',FLAGS.protein_bpe_len,FLAGS.protein_len,FLAGS.smiles_bpe_len,FLAGS.smiles_len)
                              
 if FLAGS.bpe_option[0] == True:
     protein_data = add_reg_token(protein_data, FLAGS.protein_dict_bpe_len)
