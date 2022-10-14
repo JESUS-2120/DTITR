@@ -66,7 +66,7 @@ def argparser():
     parser.add_argument(
         '--smiles_len',
         type=int,
-        default=72,
+        default=78,
         help='SMILES Strings Max Length')
 
     parser.add_argument(
